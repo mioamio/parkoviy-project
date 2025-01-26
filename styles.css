@@ -1,8 +1,8 @@
 /* Основные стили */
 body {
   font-family: 'Roboto', sans-serif;
-  color: #fff; /* Изменено на белый цвет */
-  background-color: #333; /* Изменено для контраста */
+  color: #fff;
+  background-color: #333;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -24,17 +24,17 @@ body {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 10px;
-  color: #fff; /* Добавлено для белого цвета текста */
+  color: #fff;
 }
 
 .site-title-link {
-  text-decoration: none; /* Убираем подчеркивание */
-  color: #fff; /* Белый цвет текста */
+  text-decoration: none;
+  color: #fff;
 }
 
 .site-title-link:hover {
-  color: #fff; /* Оставляем белый цвет при наведении */
-  text-decoration: none; /* Убираем подчеркивание при наведении */
+  color: #fff;
+  text-decoration: none;
 }
 
 .nav {
@@ -54,10 +54,11 @@ body {
   color: #cfe2ff !important;
   border-bottom: 2px solid #cfe2ff;
 }
+
 /* Чат */
 .chat-container {
-  background-color: #444; /* Изменено для контраста */
-  border: 1px solid #555; /* Изменено для контраста */
+  background-color: #444;
+  border: 1px solid #555;
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -72,10 +73,10 @@ body {
 .chat-box .message {
   margin-bottom: 10px;
   padding: 10px;
-  background-color: #555; /* Изменено для контраста */
+  background-color: #555;
   border-radius: 5px;
   position: relative;
-  color: #fff; /* Изменено на белый цвет */
+  color: #fff;
 }
 
 .message .user-info {
@@ -103,7 +104,7 @@ body {
 
 .message .user-entrance {
   font-size: 0.9rem;
-  color: #ccc; /* Изменено для контраста */
+  color: #ccc;
   margin-left: 5px;
 }
 
@@ -113,12 +114,12 @@ body {
 
 .message .time {
   font-size: 0.8rem;
-  color: #ccc; /* Изменено для контраста */
+  color: #ccc;
 }
 
 .message .edited {
   font-size: 0.8rem;
-  color: #ccc; /* Изменено для контраста */
+  color: #ccc;
   font-style: italic;
 }
 
@@ -133,7 +134,7 @@ body {
   border: none;
   cursor: pointer;
   margin-left: 5px;
-  color: #ccc; /* Изменено для контраста */
+  color: #ccc;
   transition: color 0.3s;
 }
 
@@ -147,7 +148,7 @@ body {
   border: none;
   cursor: pointer;
   font-size: 1.2rem;
-  color: #ccc; /* Изменено для контраста */
+  color: #ccc;
   transition: color 0.3s;
   padding: 0;
   margin-left: 10px;
@@ -159,8 +160,8 @@ body {
 
 /* Календарь */
 #calendar {
-  background-color: #444; /* Изменено для контраста */
-  border: 1px solid #555; /* Изменено для контраста */
+  background-color: #444;
+  border: 1px solid #555;
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -183,13 +184,13 @@ body {
   text-align: center;
   padding: 10px;
   border-radius: 5px;
-  background-color: #555; /* Изменено для контраста */
+  background-color: #555;
   cursor: pointer;
-  color: #fff; /* Изменено на белый цвет */
+  color: #fff;
 }
 
 .calendar-grid div:hover {
-  background-color: #666; /* Изменено для контраста */
+  background-color: #666;
 }
 
 .calendar-grid div.today {
@@ -215,25 +216,25 @@ body {
 }
 
 .modal-content {
-  background-color: #444; /* Изменено для контраста */
+  background-color: #444;
   margin: 10% auto;
   padding: 20px;
   border-radius: 10px;
   width: 90%;
   max-width: 500px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  color: #fff; /* Изменено на белый цвет */
+  color: #fff;
 }
 
 .close {
   float: right;
   font-size: 1.5rem;
   cursor: pointer;
-  color: #fff; /* Изменено на белый цвет */
+  color: #fff;
 }
 
 .close:hover {
-  color: #ccc; /* Изменено для контраста */
+  color: #ccc;
 }
 
 /* Кнопки подъездов */
@@ -272,15 +273,22 @@ body {
 @media (max-width: 768px) {
   .container-fluid {
     padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Занимает всю высоту экрана */
+    overflow: hidden; /* Убираем лишнюю прокрутку */
   }
 
   .chat-container {
     padding: 10px;
     margin-bottom: 20px;
+    flex: 1; /* Растягиваем чат на доступное пространство */
+    overflow-y: auto; /* Включаем прокрутку для чата */
   }
 
   .chat-box {
-    height: 300px;
+    height: auto; /* Автоматическая высота для чата */
+    max-height: 60vh; /* Ограничиваем максимальную высоту чата */
   }
 
   .entrance-block {
@@ -305,6 +313,12 @@ body {
     width: 95%;
     margin: 5% auto;
   }
+
+  /* Правая часть (подъезды, календарь, голосования) */
+  .col-md-4 {
+    overflow-y: auto; /* Включаем прокрутку для правой части */
+    max-height: 40vh; /* Ограничиваем высоту правой части */
+  }
 }
 
 /* Уведомления */
@@ -318,27 +332,4 @@ body {
   border-radius: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-}
-
-/* Минималистичное окно добавления события */
-.modal-content {
-  background-color: #444;
-  margin: 10% auto;
-  padding: 20px;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 500px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  color: #fff;
-}
-
-.close {
-  float: right;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #fff;
-}
-
-.close:hover {
-  color: #ccc;
 }
